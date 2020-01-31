@@ -1,0 +1,58 @@
+$Color1: #18191f;
+
+$MedidaEnlaceGlobal: 50px;
+
+$Colores: #4021c9 , #f00 ,#0f0;
+
+$Fila: 1,2,3;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: $Color1;
+    display: flex;
+}
+
+ul{
+    position: relative;
+    display: flex;
+    margin: 10px 0;
+    
+    &>li{
+        list-style: none;
+
+        & a{
+            display: block;
+            width: $MedidaEnlaceGlobal;
+            height: $MedidaEnlaceGlobal;
+            background: $Color1;
+            text-align: center;
+            line-height: $MedidaEnlaceGlobal;
+            margin: 0 10px;
+            border-radius: 15px;
+            box-shadow: -2px -2px 3px rgba(255,255,255,0.05), 3px 3px 3px rgba(0,0,0,0.02) ;
+        & .fa{
+            font-size: 22px;
+            color: #555;
+        }
+        }
+    }
+    @each $ValorFila in $Fila {
+        
+        &:nth-child(#{$ValorFila}) li a:hover .fa{
+            color:nth($Colores, $ValorFila);
+                text-shadow: 0 0 15px nth($Colores, $ValorFila );
+        }
+    }
+}
